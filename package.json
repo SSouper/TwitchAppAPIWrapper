@@ -1,0 +1,16 @@
+{
+  "name": "twitchappapi",
+  "version": "0.0.1",
+  "description": "Twitch App API https://twitchappapi.docs.apiary.io",
+  "main": "index.js",
+  "scripts": 
+  {
+    "test": "node tests.js"
+  },
+  "author": "_Souper_",
+  "license": "GPL-3.0",
+  "dependencies": 
+  {
+    "node-fetch": "^2.6.0"
+  }
+}
