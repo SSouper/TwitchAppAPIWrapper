@@ -65,7 +65,6 @@ async function addonSearch(categoryID, gameId, gameVersion, index, pageSize, sea
 	if(isNaN(sort)) throw new Error('sort was not a number!');
 
 	if(!gameVersion) throw new Error('empty gameVersion');
-	if(!searchFilter) throw new Error('empty searchFilter');
 
 	return get(`/addon/search?categoryId=${categoryID}&gameId=${gameId}&gameVersion=${encodeURI(gameVersion)}&index=${index}&pageSize=${pageSize}&searchFilter=${encodeURI(searchFilter)}&sectionId=${sectionId}&sort=${sort}`);
 }
