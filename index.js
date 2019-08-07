@@ -120,6 +120,73 @@ async function getAddonByFingerPrint(arr)
 	return post('/fingerprint', arr);
 }
 
+async function getMinecraftVersionTimestamp()
+{
+	return get('/minecraft/version/timestamp');
+}
+
+async function getMinecraftVersionList()
+{
+	return get('/minecraft/version');
+}
+
+async function getMinecraftVersionInfo(versionString)
+{
+	return get(`/minecraft/version/${versionString}`);
+}
+
+async function getModloaderVersionTimestamp()
+{
+	return get('/minecraft/modloader/timestamp');
+}
+
+async function getModloaderVersionList()
+{
+	return get('/minecraft/modloader');
+}
+
+async function getModloaderVersionInfo(versionString)
+{
+	return get(`/minecraft/modloader/${versionString}`);
+}
+
+async function getCategoryTimestamp()
+{
+	return get('/category/timestamp');
+}
+
+async function getCategoryList()
+{
+	return get('/category');
+}
+
+async function getCategoryInfo(categoryID)
+{
+	if(isNaN(categoryID)) throw new Error('categoryID was not a number!');
+	return get(`/category/${categoryID}`);
+}
+
+async function getCategorySectionInfo(sectionId)
+{
+	if(isNaN(sectionId)) throw new Error('sectionId was not a number!');
+	return get(`/category/section/${sectionId}`);
+}
+
+async function getGameTimestamp()
+{
+	return get('/game/timestamp');
+}
+
+async function getGamesList(supportsAddons)
+{
+	return get(`/game?${supportsAddons}`);
+}
+
+async function getGameInfo(gameId)
+{
+	return get(`/game/${gameId}`);
+}
+
 module.exports = 
 {
 	getAddonInfo: getAddonInfo,
@@ -131,5 +198,18 @@ module.exports =
 	getAddonFiles: getAddonFiles,
 	getFeaturedAddons: getFeaturedAddons,
 	getAddonsDatabaseTimestamp: getAddonsDatabaseTimestamp,
-	getAddonByFingerPrint: getAddonByFingerPrint
+	getAddonByFingerPrint: getAddonByFingerPrint,
+	getMinecraftVersionTimestamp: getMinecraftVersionTimestamp,
+	getMinecraftVersionList: getMinecraftVersionList,
+	getMinecraftVersionInfo: getMinecraftVersionInfo,
+	getModloaderVersionTimestamp: getModloaderVersionTimestamp,
+	getModloaderVersionList: getModloaderVersionList,
+	getModloaderVersionInfo: getModloaderVersionInfo,
+	getCategoryTimestamp: getCategoryTimestamp,
+	getCategoryList: getCategoryList,
+	getCategoryInfo: getCategoryInfo,
+	getCategorySectionInfo: getCategorySectionInfo,
+	getGameTimestamp: getGameTimestamp,
+	getGamesList: getGamesList,
+	getGameInfo: getGameInfo
 };
