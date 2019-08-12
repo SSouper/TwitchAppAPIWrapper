@@ -1,4 +1,4 @@
-const fetch = require('node-fetch');
+const fetch = require('node-fetch-retry');
 
 const SITE = "https://addons-ecs.forgesvc.net/api/";
 const VERSION = "v2";
@@ -29,6 +29,7 @@ async function post(endpoint, jsonData, json = true)
 			'Accept': 'application/json',
 			'Content-Type': 'application/json'
 		},
+		retry: 5,
 		body: JSON.stringify(jsonData)
 	});
 
