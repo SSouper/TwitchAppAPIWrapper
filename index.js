@@ -1,4 +1,4 @@
-const fetch = require('node-fetch-retry');
+var fetch = require('node-fetch-retry');
 
 const SITE = "https://addons-ecs.forgesvc.net/api/";
 const VERSION = "v2";
@@ -186,6 +186,11 @@ async function getGameInfo(gameId)
 	return get(`/game/${gameId}`);
 }
 
+function overwriteFetch(newFetch) // temp function to test https://www.npmjs.com/package/make-fetch-happen
+{
+	fetch = newFetch;
+}
+
 module.exports = 
 {
 	getAddonInfo: getAddonInfo,
@@ -210,5 +215,6 @@ module.exports =
 	getCategorySectionInfo: getCategorySectionInfo,
 	getGameTimestamp: getGameTimestamp,
 	getGamesList: getGamesList,
-	getGameInfo: getGameInfo
+	getGameInfo: getGameInfo,
+	overwriteFetch: overwriteFetch
 };
