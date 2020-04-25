@@ -1,6 +1,6 @@
 {
   "name": "twitchappapi",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Twitch App API https://twitchappapi.docs.apiary.io",
   "repository": "https://github.com/supertransformer/TwitchAppAPIWrapper",
   "main": "index.js",
