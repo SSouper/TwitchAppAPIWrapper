@@ -91,6 +91,14 @@ async function getAddonFileInformation(addonID, fileID)
 	return get(`/addon/${addonID}/file/${fileID}`);
 }
 
+async function getAddonFileDownloadUrl(addonID, fileID)
+{
+	if(isNaN(addonID)) throw new Error('addonID was not a number!');
+	if(isNaN(fileID)) throw new Error('fileID was not a number!');
+	
+	return get(`/addon/${addonID}/file/${fileID}/download-url`, false);
+}
+
 async function getAddonFiles(addonID)
 {
 	if(isNaN(addonID)) throw new Error('addonID was not a number!');
@@ -199,6 +207,7 @@ module.exports =
 	getAddonDescription: getAddonDescription,
 	getAddonFileChangelog: getAddonFileChangelog,
 	getAddonFileInformation: getAddonFileInformation,
+	getAddonFileDownloadUrl: getAddonFileDownloadUrl,
 	getAddonFiles: getAddonFiles,
 	getFeaturedAddons: getFeaturedAddons,
 	getAddonsDatabaseTimestamp: getAddonsDatabaseTimestamp,
